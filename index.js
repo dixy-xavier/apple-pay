@@ -9,11 +9,8 @@ const showApplePay = () => {
       {
         supportedMethods: "https://apple.com/apple-pay",
         data: {
-          payItForwardField: "ABC",
           countryCode: "80686",
-          merchantCapabilities: {
-            supports3DS: false,
-          },
+          merchantCapabilities: ["supports3DS"],
           supportedNetworks: ["masterCard", "visa"],
         },
       },
