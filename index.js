@@ -11,14 +11,10 @@ const showApplePay = () => {
         data: {
           payItForwardField: "ABC",
           countryCode: "80686",
-        },
-      },
-      {
-        supportedMethods: "https://example.com/bobpay",
-        data: {
-          merchantIdentifier: "XXXX",
-          bobPaySpecificField: true,
-          countryCode: "80686",
+          merchantCapabilities: {
+            supports3DS: false,
+          },
+          supportedNetworks: ["masterCard", "visa"],
         },
       },
     ];
