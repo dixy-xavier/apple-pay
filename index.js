@@ -9,6 +9,7 @@ const showApplePay = () => {
       {
         supportedMethods: "https://apple.com/apple-pay",
         data: {
+          merchantIdentifier: process.env.MERCHANT_IDENTIFIER,
           countryCode: "80686",
           merchantCapabilities: ["supports3DS"],
           supportedNetworks: ["masterCard", "visa"],
