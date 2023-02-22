@@ -11,6 +11,9 @@ jobs:
     environment: production
     concurrency: production
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        uses: actions/setup-node@v3
       - name: install
         run: npm i
       - name: build

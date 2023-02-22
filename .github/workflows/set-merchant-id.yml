@@ -1,14 +1,23 @@
 name: Set merchant identifier
 run-name: Set merchant identifier
-on: [push]
+on:
+  push:
+    branches:
+      - main
+
 jobs:
   set-merchant-id:
     runs-on: ubuntu-latest
+    env:
+      CI: true
+
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
       env:
-          CI: true
           MERCHANT_IDENTIFIER: ${{ secrets.MERCHANT_IDENTIFIER }}
+      - name: echo
+        run: |
+          echo "MERCHANT_IDENTIFIER:" $MERCHANT_IDENTIFIER
