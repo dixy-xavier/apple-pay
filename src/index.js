@@ -1,3 +1,4 @@
+document.get('applepay-radio').addEventListener("click", showApplePay);
 const showApplePay = () => {
   if (window.ApplePaySession) {
     const showApplePayButton = ApplePaySession.canMakePayments();
