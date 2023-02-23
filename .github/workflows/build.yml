@@ -1,15 +1,17 @@
 name: Deployment
 
 on:
+  workflow_dispatch:
   push:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   deployment:
-    runs-on: ubuntu-latest
-    environment: production
-    concurrency: production
+    runs-on: nodejs
+
+    env:
+      CI: true
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3

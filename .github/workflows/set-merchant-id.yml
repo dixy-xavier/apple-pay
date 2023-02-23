@@ -1,23 +1,23 @@
 name: Set merchant identifier
-run-name: Set merchant identifier
+
 on:
+  workflow_dispatch:
   push:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   set-merchant-id:
-    runs-on: ubuntu-latest
+    runs-on: nodejs
+
     env:
       CI: true
 
     steps:
-      - uses: actions/checkout@v3
-        with:
-          node-version: '14'
-      env:
-          MERCHANT_IDENTIFIER: ${{ secrets.MERCHANT_IDENTIFIER }}
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
       - name: echo
+        env:
+          MERCHANT_IDENTIFIER: ${{ secrets.MERCHANT_IDENTIFIER }}
         run: |
           echo "MERCHANT_IDENTIFIER:" $MERCHANT_IDENTIFIER
