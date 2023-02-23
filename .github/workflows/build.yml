@@ -7,7 +7,7 @@ on:
 
 jobs:
   deployment:
-    runs-on: nodejs
+    runs-on: ubuntu-latest
 
     env:
       CI: true
