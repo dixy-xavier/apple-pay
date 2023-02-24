@@ -1,4 +1,4 @@
-name: Deployment
+name: Build
 
 on:
   workflow_dispatch:
@@ -6,11 +6,8 @@ on:
     branches: [main]
 
 jobs:
-  deployment:
+  build:
     runs-on: ubuntu-latest
-
-    env:
-      CI: true
 
     steps:
       - name: Checkout repository
