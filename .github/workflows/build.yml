@@ -16,8 +16,17 @@ jobs:
         with:
           node-version: '19.x'
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.TOKEN }}
+          TOKEN: ${{ secrets.TOKEN }}
+      - name: echo
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+        run: |
+          echo "TOKEN:" $TOKEN
       - name: Install dependencies
         run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.TOKEN }}
       - name: Build
         run: npm run prod --if-present
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.TOKEN }}
